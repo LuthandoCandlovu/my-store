@@ -1,103 +1,148 @@
 <div align="center">
 
-# 🛍️ MyStore
+<img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=MyStore&fontSize=80&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20E-Commerce%20Platform&descAlignY=60&descColor=ffffff&animation=fadeIn" width="100%" />
 
-### Full-Stack E-Commerce Platform
+<br/>
 
-![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=for-the-badge&logo=next.js)
-![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase)
-![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe)
-![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
+[![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![MIT License](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
 
-A modern, production-ready e-commerce store built with **Next.js 16**, **Supabase**, and **Stripe**. Features a beautiful UI, shopping cart, real-time stock management, and secure payments.
+<br/>
 
-[🚀 Live Demo](#) · [📖 Docs](#getting-started) · [🐛 Report Bug](https://github.com/LuthandoCandlovu/my-store/issues) · [✨ Request Feature](https://github.com/LuthandoCandlovu/my-store/issues)
+> **A modern, production-ready storefront** — shopping cart, real-time stock, Stripe checkout, and an admin dashboard, all in one repo.
+
+<br/>
+
+[🚀 Live Demo](#) &nbsp;·&nbsp; [📖 Getting Started](#-getting-started) &nbsp;·&nbsp; [🐛 Report Bug](https://github.com/LuthandoCandlovu/my-store/issues) &nbsp;·&nbsp; [✨ Request Feature](https://github.com/LuthandoCandlovu/my-store/issues)
 
 </div>
+
+<br/>
 
 ---
 
 ## 📋 Table of Contents
 
 - [✨ Features](#-features)
-- [🚀 Tech Stack](#-tech-stack)
-- [🗄️ Database Schema](#️-database-schema--erd)
+- [🏗️ Architecture](#️-architecture)
+- [🗄️ Database Schema](#️-database-schema)
+- [🗺️ Route Map](#️-route-map)
+- [📁 Project Structure](#-project-structure)
 - [🏁 Getting Started](#-getting-started)
 - [🔑 Environment Variables](#-environment-variables)
-- [🗺️ Pages Overview](#️-pages-overview)
-- [📁 Project Structure](#-project-structure)
 - [🚢 Deployment](#-deployment)
 - [🤝 Contributing](#-contributing)
-- [📧 Contact](#-contact)
 
 ---
 
 ## ✨ Features
 
-| Feature | Description |
-|---|---|
-| 🛒 **Shopping Cart** | Persistent cart with localStorage, add/remove items, quantity updates |
-| 💳 **Stripe Payments** | Secure checkout integration with webhook handling |
-| 📦 **Live Stock** | Real-time inventory management with automatic stock reduction |
-| 👑 **Admin Dashboard** | Manage products, view orders, update stock levels |
-| 🎨 **Beautiful UI** | Tailwind CSS with responsive design for mobile & desktop |
-| 🔐 **Authentication** | Supabase Auth ready (login/register pages included) |
-| 📱 **Mobile First** | Fully responsive design that works on all devices |
-| 🛡️ **Row Level Security** | Supabase RLS policies for fine-grained data access control |
+<div align="center">
+
+| &nbsp; | Feature | Description |
+|:---:|:---|:---|
+| 🛒 | **Shopping Cart** | Persistent cart with localStorage — add, remove, update quantities across sessions |
+| 💳 | **Stripe Payments** | Secure Stripe Checkout with full webhook lifecycle event handling |
+| 📦 | **Live Stock** | Real-time inventory with automatic stock deduction on every purchase |
+| 👑 | **Admin Dashboard** | Manage products, view orders, and update stock from a protected panel |
+| 🎨 | **Beautiful UI** | Tailwind CSS with responsive, mobile-first design using Headless UI & Radix |
+| 🔐 | **Auth Ready** | Supabase Auth with login/register pages included out of the box |
+| 🛡️ | **Row Level Security** | Fine-grained data access control enforced at the Supabase database level |
+| ⚡ | **Server Components** | Next.js 16 App Router with RSC for optimal performance and SEO |
+
+</div>
 
 ---
 
-## 🚀 Tech Stack
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    subgraph Client["🌐 Client Layer"]
+        B[Browser / Next.js UI]
+        CC[🛒 Cart Context\nlocalStorage]
+        SJ[💳 Stripe.js\nPayment UI]
+    end
+
+    subgraph Server["⚙️ Next.js 16 Server"]
+        AR[📄 App Router\nPages & Layouts]
+        SC[🧩 Server Components\nSSR / RSC]
+        API[🔗 API Routes\n/api/*]
+        WH[🪝 Webhook Handler\n/api/webhook]
+    end
+
+    subgraph Data["🗄️ Data Layer"]
+        SB[(🐘 Supabase\nPostgreSQL + Auth\n+ Row Level Security)]
+        ST[💳 Stripe API\nCheckout + Events]
+    end
+
+    B -->|HTTP| AR
+    CC -->|State| AR
+    SJ -->|Checkout| API
+    AR --> SC
+    AR --> API
+    API --> WH
+    SC -->|Query| SB
+    API -->|Query| SB
+    API -->|Create Session| ST
+    ST -->|Webhook Events| WH
+    WH -->|Update Orders| SB
+
+    style Client fill:#1a1a2e,stroke:#6C63FF,color:#e8e8f0
+    style Server fill:#16213e,stroke:#3ECF8E,color:#e8e8f0
+    style Data fill:#0f3460,stroke:#635BFF,color:#e8e8f0
+```
+
+<br/>
+
+### 🔧 Tech Stack
+
+<div align="center">
 
 <table>
 <tr>
-<td valign="top" width="25%">
+<th align="center" width="25%">⚛️ Frontend</th>
+<th align="center" width="25%">🗄️ Backend</th>
+<th align="center" width="25%">💳 Payments</th>
+<th align="center" width="25%">🔄 State</th>
+</tr>
+<tr>
+<td valign="top" align="center">
 
-**Frontend**
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS
-- Headless UI + Radix
-- Lucide Icons
-
-</td>
-<td valign="top" width="25%">
-
-**Backend**
-- Supabase (PostgreSQL)
-- Supabase Auth
-- Row Level Security
-- Server Components
+Next.js 16<br/>App Router<br/>TypeScript 5<br/>Tailwind CSS<br/>Headless UI<br/>Radix UI<br/>Lucide Icons
 
 </td>
-<td valign="top" width="25%">
+<td valign="top" align="center">
 
-**Payments**
-- Stripe Checkout
-- Stripe Webhooks
-- Secure payment flow
+Supabase<br/>PostgreSQL<br/>Supabase Auth<br/>Row Level Security<br/>Server Components
 
 </td>
-<td valign="top" width="25%">
+<td valign="top" align="center">
 
-**State Management**
-- React Context (Cart)
-- localStorage persistence
-- Server Components
+Stripe Checkout<br/>Stripe Webhooks<br/>Payment lifecycle<br/>Idempotency keys<br/>Secure flow
+
+</td>
+<td valign="top" align="center">
+
+React Context<br/>localStorage persist<br/>Server Components<br/>No Redux needed<br/>useCart hook
 
 </td>
 </tr>
 </table>
 
+</div>
+
 ---
 
-## 🗄️ Database Schema — ERD
+## 🗄️ Database Schema
 
 ```mermaid
 erDiagram
-    products {
+    PRODUCTS {
         UUID id PK
         TEXT name
         INT price_cents
@@ -106,14 +151,14 @@ erDiagram
         BOOLEAN is_active
     }
 
-    orders {
+    ORDERS {
         UUID id PK
         TEXT status
         INT total_cents
         TEXT stripe_session_id
     }
 
-    order_items {
+    ORDER_ITEMS {
         UUID id PK
         UUID order_id FK
         UUID product_id FK
@@ -121,39 +166,123 @@ erDiagram
         INT price_cents
     }
 
-    products ||--o{ order_items : "referenced in"
-    orders ||--o{ order_items : "contains"
+    PRODUCTS ||--o{ ORDER_ITEMS : "referenced in"
+    ORDERS ||--o{ ORDER_ITEMS : "contains"
 ```
 
-### SQL Setup
+<details>
+<summary><strong>📄 View full SQL setup</strong></summary>
+
+<br/>
 
 ```sql
--- Products table
+-- ──────────────────────────────────────────────────
+-- 1. Products
+-- ──────────────────────────────────────────────────
 CREATE TABLE products (
-    id UUID PRIMARY KEY,
-    name TEXT NOT NULL,
-    price_cents INT NOT NULL,
-    stock_qty INT NOT NULL,
-    category TEXT,
-    is_active BOOLEAN DEFAULT true
+    id          UUID    PRIMARY KEY DEFAULT gen_random_uuid(),
+    name        TEXT    NOT NULL,
+    price_cents INT     NOT NULL,
+    stock_qty   INT     NOT NULL,
+    category    TEXT,
+    is_active   BOOLEAN DEFAULT true
 );
 
--- Orders table
+-- ──────────────────────────────────────────────────
+-- 2. Orders
+-- ──────────────────────────────────────────────────
 CREATE TABLE orders (
-    id UUID PRIMARY KEY,
-    status TEXT DEFAULT 'pending',
-    total_cents INT NOT NULL,
+    id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    status            TEXT DEFAULT 'pending',
+    total_cents       INT  NOT NULL,
     stripe_session_id TEXT UNIQUE
 );
 
--- Order items table
+-- ──────────────────────────────────────────────────
+-- 3. Order Items (join table)
+-- ──────────────────────────────────────────────────
 CREATE TABLE order_items (
-    id UUID PRIMARY KEY,
-    order_id UUID REFERENCES orders(id),
-    product_id UUID REFERENCES products(id),
-    qty INT NOT NULL,
+    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    order_id    UUID REFERENCES orders(id)   ON DELETE CASCADE,
+    product_id  UUID REFERENCES products(id) ON DELETE RESTRICT,
+    qty         INT NOT NULL,
     price_cents INT NOT NULL
 );
+
+-- ──────────────────────────────────────────────────
+-- 4. Row Level Security
+-- ──────────────────────────────────────────────────
+ALTER TABLE products    ENABLE ROW LEVEL SECURITY;
+ALTER TABLE orders      ENABLE ROW LEVEL SECURITY;
+ALTER TABLE order_items ENABLE ROW LEVEL SECURITY;
+
+-- Public can read active products
+CREATE POLICY "Public read products"
+    ON products FOR SELECT USING (is_active = true);
+```
+
+</details>
+
+---
+
+## 🗺️ Route Map
+
+```
+my-store/
+│
+├── /                        🏠  Homepage — hero + featured products
+├── /menu                    🛍️  Product catalog with category filter
+├── /product/[id]            📄  Product detail + add to cart
+├── /cart                    🛒  Cart review + Stripe checkout
+│
+├── /checkout/
+│   ├── success              ✅  Order confirmation
+│   └── cancel               ❌  Payment cancelled fallback
+│
+└── /admin/
+    ├── (index)              📊  Dashboard overview
+    └── products             📦  Product & inventory management
+```
+
+---
+
+## 📁 Project Structure
+
+```
+my-store/
+├── 📁 app/                          # Next.js App Router root
+│   ├── 📁 (shop)/                   # Public store routes
+│   │   ├── page.tsx                 # / Homepage
+│   │   ├── 📁 menu/                 # /menu catalog
+│   │   ├── 📁 product/[id]/         # /product/:id dynamic page
+│   │   └── 📁 cart/                 # /cart
+│   ├── 📁 checkout/
+│   │   ├── 📁 success/              # /checkout/success
+│   │   └── 📁 cancel/               # /checkout/cancel
+│   ├── 📁 admin/                    # Protected admin area
+│   │   ├── page.tsx                 # /admin dashboard
+│   │   └── 📁 products/             # /admin/products
+│   └── 📁 api/
+│       ├── 📁 checkout/             # POST — create Stripe session
+│       └── 📁 webhook/              # POST — handle Stripe events
+│
+├── 📁 components/
+│   ├── 📁 shop/                     # ProductCard, CartItem, Filters…
+│   ├── 📁 admin/                    # AdminTable, StockEditor…
+│   └── 📁 shared/                   # Navbar, Button, Modal…
+│
+├── 📁 contexts/
+│   └── CartContext.tsx              # Global cart state + localStorage
+│
+├── 📁 lib/
+│   └── 📁 supabase/
+│       ├── client.ts                # Browser Supabase client
+│       └── server.ts                # Server-side Supabase client
+│
+├── 📁 hooks/                        # useCart, useProducts, useAdmin…
+├── 📁 scripts/
+│   └── supabase-setup.sql          # ⭐ Run this first!
+└── 📁 public/                       # Static assets
 ```
 
 ---
@@ -162,189 +291,142 @@ CREATE TABLE order_items (
 
 ### Prerequisites
 
-- Node.js 18+
-- npm or yarn
-- [Supabase account](https://supabase.com) (free)
-- [Stripe account](https://stripe.com) (free)
+| Tool | Version | Link |
+|:---|:---|:---|
+| Node.js | 18+ | [nodejs.org](https://nodejs.org) |
+| Supabase account | Free tier | [supabase.com](https://supabase.com) |
+| Stripe account | Free test mode | [stripe.com](https://stripe.com) |
 
 ### Installation
 
-**1. Clone the repository**
+**1️⃣ Clone the repo**
+
 ```bash
 git clone https://github.com/LuthandoCandlovu/my-store.git
 cd my-store
 ```
 
-**2. Install dependencies**
+**2️⃣ Install dependencies**
+
 ```bash
 npm install
 ```
 
-**3. Set up environment variables**
+**3️⃣ Configure environment variables**
 
-Create a `.env.local` file in the root directory (see [Environment Variables](#-environment-variables) below).
+```bash
+cp .env.example .env.local
+# Fill in your Supabase and Stripe keys — see below
+```
 
-**4. Set up the database**
+**4️⃣ Set up the database**
 
-Run the SQL in `scripts/supabase-setup.sql` in your Supabase SQL editor.
+Open your [Supabase SQL Editor](https://app.supabase.com), paste the contents of `scripts/supabase-setup.sql`, and run it.
 
-**5. Start the development server**
+**5️⃣ Start the development server**
+
 ```bash
 npm run dev
 ```
 
-**6. Open your store**
+**6️⃣ Open your store**
+
 ```
 http://localhost:3000/menu
 ```
+
+> 🧪 **Connection check** → `http://localhost:3000/menu/debug`
 
 ---
 
 ## 🔑 Environment Variables
 
-Create a `.env.local` file in the project root:
-
 ```env
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+# ── Supabase ────────────────────────────────────────────
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxxxxxxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJh...
+SUPABASE_SERVICE_ROLE_KEY=eyJh...
 
-# Stripe
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-STRIPE_SECRET_KEY=your_stripe_secret_key
-STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
+# ── Stripe ──────────────────────────────────────────────
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_...
+STRIPE_SECRET_KEY=sk_test_...
+STRIPE_WEBHOOK_SECRET=whsec_...
 
-# App
+# ── App ─────────────────────────────────────────────────
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-> ⚠️ **Never commit your `.env.local` file to version control.** Make sure it's listed in `.gitignore`.
-
----
-
-## 🗺️ Pages Overview
-
-| Route | Description |
-|---|---|
-| `/` | Homepage with hero and featured products |
-| `/menu` | Browse all products with categories |
-| `/product/[id]` | Individual product details |
-| `/cart` | Shopping cart with checkout |
-| `/checkout/success` | Order confirmation |
-| `/checkout/cancel` | Payment cancelled |
-| `/admin` | Dashboard for store management |
-| `/admin/products` | Manage product inventory |
-
----
-
-## 📁 Project Structure
-
-```
-my-store/
-├── app/                    # Next.js App Router
-│   ├── (shop)/             # Public pages
-│   ├── admin/              # Admin dashboard
-│   └── api/                # API routes
-├── components/
-│   ├── shop/               # Store components
-│   ├── admin/              # Admin components
-│   └── shared/             # Reusable components
-├── contexts/               # React Context (Cart, etc.)
-├── lib/
-│   └── supabase/           # Supabase client helpers
-├── hooks/                  # Custom React hooks
-├── scripts/                # Database setup scripts
-└── public/                 # Static assets
-```
+> ⚠️ **Never commit `.env.local`** — it is already included in `.gitignore`.
 
 ---
 
 ## 🚢 Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel *(Recommended)*
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/LuthandoCandlovu/my-store)
 
 1. Push your code to GitHub
 2. Import the project at [vercel.com](https://vercel.com)
-3. Add your production environment variables in the Vercel dashboard
+3. Add your **production** environment variables in the Vercel dashboard
 4. Hit **Deploy** 🎉
 
-### Production Environment Variables
-
-Update `.env.local` values with your live/production keys:
+**Production keys** — swap test for live:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=your_production_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_production_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_production_service_key
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
 
----
-
-## 🧪 Testing
-
-Run the debug page to verify Supabase connection:
-```
-http://localhost:3000/menu/debug
-```
-
-Test the API directly:
-```bash
-curl -X GET "https://your-project.supabase.co/rest/v1/products" \
-  -H "apikey: your_anon_key" \
-  -H "Authorization: Bearer your_anon_key"
-```
+> 📌 Register `https://your-domain.com/api/webhook` as a live endpoint in your [Stripe Dashboard](https://dashboard.stripe.com/webhooks).
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow the steps below:
+Contributions are welcome and appreciated!
 
-1. **Fork** the repository
-2. **Create** your feature branch
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Commit** your changes
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. **Push** to the branch
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. **Open** a Pull Request
+```bash
+# 1. Fork the repo on GitHub
+
+# 2. Create your feature branch
+git checkout -b feature/amazing-feature
+
+# 3. Commit your changes  (Conventional Commits style)
+git commit -m "feat: add amazing feature"
+
+# 4. Push to GitHub
+git push origin feature/amazing-feature
+
+# 5. Open a Pull Request
+```
 
 ---
 
 ## 📝 License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Distributed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 ---
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgements
 
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Supabase Documentation](https://supabase.com/docs)
-- [Stripe Documentation](https://stripe.com/docs)
+- [Next.js Docs](https://nextjs.org/docs)
+- [Supabase Docs](https://supabase.com/docs)
+- [Stripe Docs](https://stripe.com/docs)
 - [Tailwind CSS](https://tailwindcss.com)
-
----
-
-## 📧 Contact
-
-**Luthando Candlovu** — [@LuthandoCandlovu](https://github.com/LuthandoCandlovu)
-
-Project Link: [https://github.com/LuthandoCandlovu/my-store](https://github.com/LuthandoCandlovu/my-store)
+- [Capsule Render](https://github.com/kyechan99/capsule-render) for the animated banners
 
 ---
 
 <div align="center">
-  Built with ❤️ using Next.js, Supabase, and Stripe
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=120&section=footer" width="100%" />
+
+**Built with ❤️ by [Luthando Candlovu](https://github.com/LuthandoCandlovu)**
+
+⭐ **Star this repo** if you found it helpful!
+
 </div>
