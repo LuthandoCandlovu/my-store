@@ -1,8 +1,13 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=MyStore&fontSize=90&fontColor=ffffff&fontAlignY=40&desc=Full-Stack%20E-Commerce%20Platform&descAlignY=62&descColor=ffffffcc&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=240&section=header&text=MyStore&fontSize=96&fontColor=ffffff&fontAlignY=42&desc=Full-Stack%20E-Commerce%20Platform&descAlignY=64&descColor=ffffffaa&animation=fadeIn" width="100%" />
 
 <br/>
+
+<!-- Animated typing SVG -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6C63FF&center=true&vCenter=true&width=600&lines=Shopping+Cart+%2B+Real-Time+Stock+%F0%9F%9B%92;Stripe+Checkout+%2B+Webhooks+%F0%9F%92%B3;Admin+Dashboard+%2B+Auth+%F0%9F%91%91;Built+with+Next.js+16+%2B+Supabase+%E2%9A%A1" alt="Typing SVG" />
+
+<br/><br/>
 
 <a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /></a>
 <a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /></a>
@@ -13,11 +18,13 @@
 
 <br/><br/>
 
-> **A modern, production-ready storefront** — shopping cart, real-time stock, Stripe checkout, and an admin dashboard, all in one repo.
+> 🛍️ **A modern, production-ready storefront** — shopping cart, real-time stock, Stripe checkout, and an admin dashboard, all in one repo.
 
 <br/>
 
-[🚀 Live Demo](#) &nbsp;·&nbsp; [📖 Getting Started](#-getting-started) &nbsp;·&nbsp; [🐛 Report Bug](https://github.com/LuthandoCandlovu/my-store/issues) &nbsp;·&nbsp; [✨ Request Feature](https://github.com/LuthandoCandlovu/my-store/issues)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Store-6C63FF?style=for-the-badge)](#)
+[![Getting Started](https://img.shields.io/badge/📖_Docs-Get_Started-3ECF8E?style=for-the-badge)](#-getting-started)
+[![Report Bug](https://img.shields.io/badge/🐛_Bug-Report_Issue-FF6B6B?style=for-the-badge)](https://github.com/LuthandoCandlovu/my-store/issues)
 
 </div>
 
@@ -25,16 +32,19 @@
 
 ---
 
-## 🖼️ App Preview
+## 🖼️ Preview
 
 <div align="center">
-<br/>
-
-![MyStore Storefront Preview](https://github.com/user-attachments/assets/a996937d-08e0-41e1-a3fa-0429d397d360)
 
 <br/>
 
-*✨ The full MyStore storefront — hero section, product grid & seamless shopping experience*
+<a href="#">
+  <img src="https://github.com/user-attachments/assets/a996937d-08e0-41e1-a3fa-0429d397d360" alt="MyStore — Full Storefront Preview" width="100%" style="border-radius:12px;" />
+</a>
+
+<br/><br/>
+
+> *The complete storefront — hero section, product grid, category filters & seamless shopping flow*
 
 </div>
 
@@ -433,17 +443,28 @@ Distributed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 - [Stripe Docs](https://stripe.com/docs)
 - [Tailwind CSS](https://tailwindcss.com)
 - [Capsule Render](https://github.com/kyechan99/capsule-render) for the animated banners
+- [Readme Typing SVG](https://github.com/DenverCoder1/readme-typing-svg) for the typewriter effect
 
 ---
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=140&section=footer&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=160&section=footer&text=Happy+Shopping!&fontSize=32&fontColor=ffffff&fontAlignY=65&animation=fadeIn" width="100%" />
+
+<br/>
 
 **Built with ❤️ by [Luthando Candlovu](https://github.com/LuthandoCandlovu)**
 
-⭐ **Star this repo** if you found it helpful!
+<br/>
 
+[![GitHub stars](https://img.shields.io/github/stars/LuthandoCandlovu/my-store?style=social)](https://github.com/LuthandoCandlovu/my-store)
+&nbsp;
+[![GitHub forks](https://img.shields.io/github/forks/LuthandoCandlovu/my-store?style=social)](https://github.com/LuthandoCandlovu/my-store/fork)
+&nbsp;
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=LuthandoCandlovu.my-store&left_color=6C63FF&right_color=3ECF8E)
+
+<br/>
+
+⭐ **Star this repo** if you found it helpful!
 
 </div>
