@@ -1,17 +1,17 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=200&section=header&text=MyStore&fontSize=80&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20E-Commerce%20Platform&descAlignY=60&descColor=ffffff&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=MyStore&fontSize=90&fontColor=ffffff&fontAlignY=40&desc=Full-Stack%20E-Commerce%20Platform&descAlignY=62&descColor=ffffffcc&animation=fadeIn" width="100%" />
 
 <br/>
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
-[![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
-[![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![MIT License](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](LICENSE)
+<a href="https://nextjs.org"><img src="https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" /></a>
+<a href="https://typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" /></a>
+<a href="https://supabase.com"><img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" /></a>
+<a href="https://stripe.com"><img src="https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe&logoColor=white" /></a>
+<a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge" /></a>
 
-<br/>
+<br/><br/>
 
 > **A modern, production-ready storefront** — shopping cart, real-time stock, Stripe checkout, and an admin dashboard, all in one repo.
 
@@ -22,6 +22,21 @@
 </div>
 
 <br/>
+
+---
+
+## 🖼️ App Preview
+
+<div align="center">
+<br/>
+
+![MyStore Storefront Preview](https://github.com/user-attachments/assets/a996937d-08e0-41e1-a3fa-0429d397d360)
+
+<br/>
+
+*✨ The full MyStore storefront — hero section, product grid & seamless shopping experience*
+
+</div>
 
 ---
 
@@ -423,10 +438,12 @@ Distributed under the **MIT License** — see [`LICENSE`](LICENSE) for details.
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6C63FF&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=140&section=footer&animation=fadeIn" width="100%" />
 
 **Built with ❤️ by [Luthando Candlovu](https://github.com/LuthandoCandlovu)**
 
 ⭐ **Star this repo** if you found it helpful!
+
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=LuthandoCandlovu.my-store&left_color=6C63FF&right_color=3ECF8E)
 
 </div>
